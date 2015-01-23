@@ -17,6 +17,17 @@
             <div class="form-group">
               <input type="text" class="form-control" ng-model="artist" placeholder="Artist Name" >
               <button class="btn btn-primary" ng-click="getSongData()"> Submit </button>
+              
+
+              <input type="text" class="form-control" ng-model="doFilter.filterText" placeholder="Filter here">
+
+              <select ng-model="sortField" ng-options="list.value as list.shown for list in list">
+                
+                <option value="songData.Type">Type</option>
+                <option value="songData.Artist">Artist</option>
+                <option value="songData.Collection">Collection </option>
+                
+              </select>
             </div>
           </form>
         </div>

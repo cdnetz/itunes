@@ -27,7 +27,9 @@ var deferred = $q.defer();
         Collection: results[i].collectionName,
         CollectionPrice: results[i].collectionPrice,
         Play: results[i].previewUrl,
-        Type: results[i].kind
+        Type: results[i].kind,
+        TrackNum: results[i].trackNumber,
+        TrackCt: results[i].trackCount,
       };
       arrSongData.push(songData);
       };

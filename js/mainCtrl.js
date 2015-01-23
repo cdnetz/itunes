@@ -4,7 +4,16 @@ var app = angular.module('itunes');
   //This is setting up the default behavior of our ng-grid. The important thing to note is
   //the 'data' property. The value is 'songData'. That means ng-grid is looking for songData on $scope and is putting whatever songData is into the grid.
   //this means when you make your iTunes request, you'll need to get back the information, parse it accordingly, then set it to songData on the scope -> $scope.songData = ...
+  $scope.doFilter = {filterText: ''};
+
+  $scope.list = [
+  {value: "songData.Type", shown: "Type"},
+  {value: "songData.Artist", shown: "Artist"},
+  {value: "songData.Collection", shown: "Collection"}
+  ];
+
   $scope.gridOptions = { 
+      filterOptions: $scope.doFilter,
       data: 'songData',
       height: '110px',
       sortInfo: {fields: ['Song', 'Artist', 'Collection', 'Type'], directions: ['asc']},
@@ -15,6 +24,8 @@ var app = angular.module('itunes');
         {field: 'AlbumArt', displayName: 'Album Art', width: '110px', cellTemplate: '<div class="ngCellText" ng-class="col.colIndex()"><img src="{{row.getProperty(col.field)}}"></div>'},
         {field: 'Type', displayName: 'Type'},
         {field: 'CollectionPrice', displayName: 'Collection Price'},
+        {field: 'TrackNum', displayName: 'Track Number'},
+        {field: 'TrackCt', displayName: 'TrackCount'}
       ]
   };
 
