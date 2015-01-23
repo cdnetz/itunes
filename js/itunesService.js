@@ -1,6 +1,6 @@
 var app = angular.module('itunes');
 
-app.service('itunesService', function($http, $q, $interval){
+app.service('itunesService', function($http, $q){
   //This service is what will do the 'heavy lifting' and get our data from the iTunes API.
   //Also not that we're using a 'service' and not a 'factory' so all your method you want to call in your controller need to be on 'this'.
 
@@ -31,7 +31,7 @@ var deferred = $q.defer();
       };
       arrSongData.push(songData);
       };
-        deferred.resolve(results);
+        deferred.resolve(arrSongData);
       }, function(err){
         deferred.reject(err);
       })
